@@ -24,40 +24,31 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <h1>Keranjang</h1>
     <div class="container my-5">
-        <a href="btn btn-primary" href="/db_pdopenjualan">Add Product</a>
+        <h1>Keranjang</h1>
         <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nama</th>
-                    <th>HARGA</th>
-                    <th>STOK</th>
+                    <th>Harga</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ( $products as $product): ?>
-                    
-                    <tr>
-                        <!--memanggil nilai kolom 'id' dari products -->
-                        <td><?= $product['id'] ?></td> 
+                <?php foreach ($products as $product) : ?>
 
+                    <tr>
                         <!-- memanggil isi dari kolom 'name' dari products -->
-                        <td><?= $product['name'] ?></td> 
-                        <td><?= $product['harga'] ?></td> 
-                        <td><?= $product['stok'] ?></td> 
-                   
-                        <td>
-                            <a class='btn btn-primary' href='/db_pdopenjualan/edit.php?id=$products[id]' role='button'>Edit</a>
-                            <a class='btn btn-danger' href='/db_pdopenjualan/delete.php?id=$products[id]' role='button'>Delete</a>
-                        </td>
+                        <td><?= $product['name'] ?></td>
+                        <td><?= $product['harga'] ?></td>
                     </tr>
 
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <a class='btn btn-success' href="/db_pdopenjualan">Tambah Produk</a>
+        <a class='btn btn-primary' href='/db_pdopenjualan/edit.php?id=$products[id]' role='button'>Ubah</a>
+        <a class='btn btn-danger' href='/db_pdopenjualan/delete.php?id=$products[id]' role='button'>Hapus</a>
     </div>
 </body>
 
