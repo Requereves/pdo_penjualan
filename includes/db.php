@@ -4,6 +4,8 @@ $dbname = 'db_pdopenjualan';
 $username = 'root';
 $password = '';
 
+
+
 try {
     //membuat objek pdo untuk koneksi database
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -17,3 +19,4 @@ try {
     //jika gagal maka pesan dibawah akan muncul
     die("Koneksi gagal: " . $e->getMessage());
 }
+
